@@ -4,7 +4,12 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.render('index.hbs')
- });
+});
+
+ app.post('/new-contact', (req, res) => {
+     console.log(req.body);
+     res.send('received');
+});
 
 app.listen(3000, () => {
   console.log("App running on port 3000...");
