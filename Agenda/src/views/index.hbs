@@ -4,11 +4,26 @@
             <h1>Agenda</h1>
         </div>
         <div class="card-body">
+            {{#if agenda}}
+            <ul class="list-group">
+                {{#each agenda}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{name}} /
+                    {{email}}
+                    <a href="/delete/{{@key}}" class="btn btn-danger">
+                        Borrar
+                    </a>
+                </li>
+                {{/each}} 
+            </ul>
+            {{else}}
+            <p>No contactos</p>
+            {{/if}}
         </div>
          
             
         <div class="card-footer">
-            <form action="/new-contact" method="POST">
+            <form action="/guardar" method="POST">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Name" class="form-control" autofocus>
                 </div>
